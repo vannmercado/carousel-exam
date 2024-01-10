@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Carousel</title>
+        <style>
+            /* .carousel img {
+                display: none;
+            } */
+        </style>
+    </head>
+    <body>
+        <h1>My Carousel</h1>
+        <div class="carousel">
+            <img alt="First" src="https://placehold.co/350x200?text=1" />
+            <img alt="Second" src="https://placehold.co/350x200?text=2" />
+            <img alt="Third" src="https://placehold.co/350x200?text=3" />
+            <img alt="Fourth" src="https://placehold.co/350x200?text=4" />
+            <img alt="Fifth" src="https://placehold.co/350x200?text=5" />
+        </div>
+        <script>
+            // Get all the images in the carousel
+            const carouselImages = document.querySelectorAll('.carousel img');
+            
+            // Set the initial index to 0
+            let currentIndex = 0;
+            
+            // Function to display the current image and move to the next one
+            function showNextImage() {
+                // Hide all the images
+                carouselImages.forEach(image => {
+                    image.style.display = 'none';
+                });
+                
+                // Display the current image
+                carouselImages[currentIndex].style.display = 'block';
+                
+                // Increment the index
+                currentIndex++;
+                
+                // If the index exceeds the number of images, reset it to 0
+                if (currentIndex >= carouselImages.length) {
+                    currentIndex = 0;
+                }
+            }
+            
+            // Call the showNextImage function every 1 second
+            setInterval(showNextImage, 1000);
+        </script>
+    </body>
+</html>
